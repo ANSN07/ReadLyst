@@ -1,0 +1,86 @@
+<div class="container" style="overflow-y: hidden">
+  <br />
+  <div *ngIf="books.length == 0">
+    <button
+      mat-raised-button
+      (click)="toAddBookPage()"
+      style="margin-top: 10px"
+    >
+      <span>Add Book</span>
+    </button>
+    <br />
+    <br />
+    <i class="bi bi-exclamation-circle"></i> No books added yet
+    <br />
+  </div>
+
+  <div *ngIf="books.length">
+    <span *ngFor="let book of books">
+      <mat-card>
+        <mat-card-header class="header-content">
+          <mat-card-title>{{ book.title }}</mat-card-title>
+
+          <button mat-button>
+            <i
+              class="bi bi-pencil-square"
+              style="font-size: 20px; margin-right: 10px; margin-left: 5px"
+              (click)="editBook(book)"
+            ></i>
+
+            <i
+              (click)="removeBookFromList(book)"
+              class="bi bi-trash"
+              style="color: red; font-size: 20px"
+            ></i>
+          </button>
+          <mat-card-subtitle *ngFor="let author of book.author">{{
+            author
+          }}</mat-card-subtitle>
+        </mat-card-header>
+        <br />
+        <mat-card-content>
+          <div class="row">
+            <div
+              class="badge rounded-pill bg-success col-xl-2"
+              [ngClass]="i == 0 ? 'bg-success' : 'bg-dark'"
+              style="margin-right: 20px"
+              *ngFor="let badgeText of getBadgeText(book); let i = index"
+            >
+              {{ badgeText }}
+            </div>
+          </div>
+        </mat-card-content>
+        <mat-card-actions style="display: flex; justify-content: flex-end">
+          <button
+            *ngIf="book.status != 'In Progress'"
+            mat-button
+            (click)="updateBookStatus(book, 'In Progress')"
+          >
+            {{ buttonText[0] }}
+          </button>
+          <button
+            *ngIf="book.status != 'Finished'"
+            mat-button
+            (click)="updateBookStatus(book, 'Finished')"
+          >
+            {{ buttonText[1] }}
+          </button>
+          <button
+            *ngIf="book.status != 'Unread'"
+            mat-button
+            (click)="updateBookStatus(book, 'Unread')"
+          >
+            {{ buttonText[2] }}
+          </button>
+          <button mat-button (click)="handleFavourites(book)">
+            <i
+              [ngClass]="book.favourite ? 'bi bi-heart-fill' : 'bi bi-heart'"
+              style="color: red !important"
+            ></i>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+      <br />
+    </span>
+  </div>
+</div>
