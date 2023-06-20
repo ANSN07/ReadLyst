@@ -1,0 +1,159 @@
+swagger: "2.0"
+info:
+  title: ReadLyst
+  description: The book tracker API
+basePath: /api
+paths:
+  /reading-list:
+    post:
+      summary: Add a new book
+      tags:
+        - Book
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          type: object
+          description: The book details
+          required: true
+          schema:
+            $ref: "#/definitions/Book"
+      responses:
+        "200":
+          description: The added book
+          schema:
+            $ref: "#/definitions/Response"
+        "500":
+          description: Internal server error
+    get:
+      summary: Lists all the books
+      tags:
+        - Book
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: The list of books
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Response"
+    put:
+      summary: Update the book by id
+      tags:
+        - Book
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: bookId
+          type: string
+          required: true
+          description: The book id
+        - in: body
+          type: object
+          required: true
+          schema:
+            $ref: "#/definitions/Book"
+      responses:
+        "200":
+          description: The updated book
+          schema:
+            $ref: "#/definitions/Response"
+        "400":
+          description: The book id not found
+    delete:
+      summary: Delete the book by id
+      tags:
+        - Book
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: bookId
+          type: string
+          required: true
+          description: The book id
+      responses:
+        "200":
+          description: The deleted book
+          schema:
+            $ref: "#/definitions/Response"
+        "400":
+          description: The book id not found
+  /reading-list/{id}:
+    get:
+      summary: Get the book by id
+      tags:
+        - Book
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: bookId
+          type: string
+          required: true
+          description: The book id
+      responses:
+        "200":
+          description: The book details by id
+          schema:
+            $ref: "#/definitions/Response"
+        "400":
+          description: The book id was not found
+definitions:
+  Book:
+    type: object
+    required:
+      - bookId
+      - title
+      - author
+      - isbn
+      - pageCount
+      - status
+    properties:
+      bookId:
+        type: string
+        description: The ID of the book
+      title:
+        type: string
+        description: The title of the book
+      author:
+        type: array
+        description: The authors of the book
+      isbn:
+        type: string
+        description: The isbn of the book
+      pageCount:
+        type: number
+        description: The pageCount of the book
+      status:
+        type: string
+        description: The status of the book
+  Response:
+    type: object
+    properties:
+      id:
+        type: string
+        description: The auto-generated id of the book
+      title:
+        type: string
+        description: The title of the book
+      author:
+        type: array
+        description: The authors of the book
+      isbn:
+        type: string
+        description: The isbn of the book
+      pageCount:
+        type: number
+        description: The pageCount of the book
+      status:
+        type: string
+        description: The status of the book
