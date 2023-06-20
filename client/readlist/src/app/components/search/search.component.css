@@ -1,0 +1,22 @@
+body {
+  margin-top: 20px;
+}
+
+.bg-gray {
+  --bs-bg-opacity: 1;
+  background-color: #ff7f50 !important;
+}
+
+.card {
+  box-shadow: 0 20px 27px 0 rgb(0 0 0 / 5%);
+  cursor: pointer;
+}
+
+.form-control::placeholder {
+  color: grey;
+}
+
+.form-control {
+  background-color: white;
+  border-color: grey !important;
+}
