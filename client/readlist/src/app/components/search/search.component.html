@@ -1,0 +1,94 @@
+<app-overview-header></app-overview-header>
+
+<div class="container-fluid py-5">
+  <div class="row">
+    <div class="col-md-3 col-lg-2">
+      <app-side-navbar></app-side-navbar>
+    </div>
+    <div class="col-md-9 col-lg-10">
+      <main class="px-md-4">
+        <div class="content">
+          <h1 style="text-align: left; margin-top: 20px">Search Books</h1>
+          <div class="form-outline row" style="color: black">
+            <div class="col-md-8">
+              <input
+                type="search"
+                id="form1"
+                class="form-control"
+                placeholder="Type a book name"
+                aria-label="Search"
+                [(ngModel)]="search"
+              />
+            </div>
+            <div class="col-md-2">
+              <button
+                mat-raised-button
+                style="float: right"
+                (click)="searchBooks()"
+                [disabled]="!search"
+              >
+                <i
+                  class="bi bi-search"
+                  style="font-size: 1rem; margin-right: 10px"
+                ></i>
+                <span style="font-size: 1rem">SEARCH</span>
+              </button>
+            </div>
+          </div>
+          <br />
+          <div
+            *ngIf="searchResults && !searchResults.totalItems"
+            style="margin-top: 10px"
+          >
+            <i class="bi bi-exclamation-circle"></i> Sorry, no results found
+            <br />
+            <button
+              mat-raised-button
+              (click)="toAddBookPage()"
+              style="margin-top: 10px"
+            >
+              <span style="font-size: 1rem">Add Book Manually</span>
+            </button>
+          </div>
+
+          <div *ngIf="searchResults && searchResults.totalItems" class="row">
+            <span
+              *ngFor="let book of searchResults.items"
+              class="container col-xl-4 mb-2 mb-lg-4"
+            >
+              <div class="card" (click)="onSearchItemClick(book)">
+                <div class="card-body">
+                  <div
+                    class="d-flex flex-column text-center align-items-center"
+                  >
+                    <div class="flex-grow-1 pt-4">
+                      <span class="d-block text-muted">
+                        {{
+                          book.volumeInfo.title
+                            ? book.volumeInfo.title
+                            : "Unknown title"
+                        }}</span
+                      >
+                      <h5>
+                        {{
+                          book.volumeInfo.authors
+                            ? book.volumeInfo.authors
+                            : "Unknown author"
+                        }}
+                      </h5>
+                      <div class="mb-4">
+                        <span class="badge rounded-pill bg-success">{{
+                          book.volumeInfo.publishedDate
+                        }}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </span>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</div>

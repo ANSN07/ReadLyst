@@ -1,0 +1,242 @@
+<div style="background-color: black">
+  <div
+    class="jumbotron jumbotron-fluid bg-image"
+    id="banner"
+    [ngStyle]="{ 'background-image': 'url(assets/img/home.jpg)' }"
+  >
+    <div class="overlay">
+      <div class="container text-center text-md-left">
+        <header>
+          <div
+            class="row justify-content-between"
+            style="margin-top: 70px; margin-bottom: 60px"
+          >
+            <div class="col-2 d-flex align-items-center">
+              <mat-icon
+                aria-hidden="false"
+                aria-label="ReadLyst logo"
+                fontIcon="menu_book"
+                class="mat-toolbar-color"
+                style="margin-right: 10px; font-size: 22px"
+              ></mat-icon>
+              <span class="app-name mat-toolbar-color">ReadLyst</span>
+            </div>
+            <div class="col-2 align-self-center text-right">
+              <button
+                mat-stroked-button
+                style="color: white; border-color: #5758e0"
+                (click)="onButtonClick()"
+              >
+                Get Started
+              </button>
+            </div>
+          </div>
+        </header>
+
+        <h1
+          class="display-3 text-white font-weight-bold my-5"
+          style="font-size: 50px"
+        >
+          Unlock Your Reading Potential
+        </h1>
+        <p class="lead text-white my-4">
+          Efficiently track your book collection, track your progress, and dive
+          deeper into the world of literature.
+          <br />
+        </p>
+        <button (click)="onButtonClick()" class="btn my-4 effect blue">
+          Get Started
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container my-5 py-1">
+    <h2 class="text-center font-weight-bold my-5 white-icon">
+      TrackIt: Your Personal Reading Tracker
+    </h2>
+    <div class="row">
+      <div
+        class="card-container py-3 col-lg-4"
+        *ngFor="let card of cards; let i = index"
+      >
+        <mat-card
+          class="card py-5"
+          (mouseenter)="setHovered(i, true)"
+          (mouseleave)="setHovered(i, false)"
+          [ngClass]="{
+            'half-border-on-top': !i && !isHovered[i],
+            'half-border-on-bottom': i == 2 && !isHovered[i]
+          }"
+        >
+          <mat-icon class="icons" [ngClass]="{ 'white-icon': isHovered[i] }">{{
+            card.icon
+          }}</mat-icon>
+          <mat-card-header>
+            <mat-card-title style="margin-top: 25px">{{
+              card.title
+            }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content
+            class="card-content"
+            [ngClass]="{ 'white-icon': isHovered[i] }"
+          >
+            {{ card.content }}
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+
+  <div class="jumbotron jumbotron-fluid feature" id="feature1">
+    <div class="container">
+      <div class="row justify-content-between text-md-left">
+        <div class="col-md-6 align-self-center flex-md-first">
+          <img src="assets/img/about-us.jpg" class="mx-auto d-block" />
+        </div>
+        <div class="col-md-6 flex-md-last">
+          <div class="line-with-gradient">
+            <h2
+              style="color: white; margin-top: 5px"
+              class="text font-weight-bold"
+            >
+              About Us
+            </h2>
+          </div>
+
+          <p
+            class="my-4"
+            style="text-align: justify; color: rgb(133, 129, 129)"
+          >
+            At our service, we provide a convenient way for you to manage your
+            personal reading list. Whether you're an avid reader or just
+            starting your reading journey, our service offers a user-friendly
+            interface to keep track of the books you want to read, are currently
+            reading, or have already finished. We are passionate about books and
+            understand the joy of discovering new stories and gaining knowledge
+            through reading. Our Book Reading List Service aims to enhance your
+            reading experience by providing a reliable platform for organizing
+            and managing your personal book collection.
+            <br />
+            <br />
+          </p>
+          <p class="my-4" style="text-align: center; color: white">
+            Start building your reading list today and embark on a
+            <br />literary adventure with us!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container my-5 py-2" id="user-table">
+    <h2 class="text-center font-weight-bold d-block mb-3">
+      What do our users say?
+    </h2>
+    <div class="row">
+      <div
+        class="col-md-4 text-center py-4 mt-5"
+        [ngClass]="isHovered[i] ? 'user-hover' : 'feature1'"
+        (mouseenter)="setHovered(i, true)"
+        (mouseleave)="setHovered(i, false)"
+        *ngFor="let user of users; let i = index"
+      >
+        <a href="#" class="btn my-4 font-weight-bold effect">
+          <h3 class="my-4" style="font-size: 35px; color: white">
+            {{ user.name }}
+          </h3>
+          <span style="color: rgb(133, 129, 129)"> {{ user.text }} </span>
+          <br />
+          <span *ngFor="let n of counter(user.rating)">
+            <mat-icon class="star" style="margin-top: 25px; margin-right: 25px"
+              >star</mat-icon
+            >
+          </span>
+          <span *ngFor="let n of counter(5 - user.rating)">
+            <mat-icon class="star" style="margin-top: 25px; margin-right: 25px"
+              >star_border</mat-icon
+            >
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="jumbotron jumbotron-fluid" id="contact">
+    <div class="container my-5">
+      <div class="row justify-content-between">
+        <div class="col-md-6 text-white">
+          <h2 class="font-weight-bold">Contact Us</h2>
+          <p class="my-4">
+            We value your feedback and are always ready to assist you. You can
+            <br />reach out to us through the contact form, and we'll make sure
+            to respond <br />to your inquiry as soon as possible.
+          </p>
+          <ul class="list-unstyled">
+            <li>Email : demo@company.com</li>
+            <li>Phone : 123-456-7891</li>
+            <li>Address : 123 Main Street Anytown, Ireland</li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <form style="color: white">
+            <div class="row" style="margin-bottom: 20px">
+              <div class="form-group col-md-6">
+                <input
+                  type="name"
+                  class="form-control"
+                  id="name"
+                  placeholder="Name"
+                />
+              </div>
+              <div class="form-group col-md-6">
+                <input
+                  type="email"
+                  class="form-control"
+                  id="Email"
+                  placeholder="Email"
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <textarea
+                class="form-control"
+                id="message"
+                rows="3"
+                placeholder="Message"
+              ></textarea>
+            </div>
+            <div class="text-center">
+              <button mat-raised-button color="primary" class="blue my-3">
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="jumbotron jumbotron-fluid" id="copyright">
+    <div class="container">
+      <div class="row">
+        <div
+          class="col-md-3 text-white align-self-center text-center text-md-left my-2"
+        >
+          Copyright © 2023 ReadLyst
+        </div>
+        <div class="col-md-5"></div>
+        <div
+          class="col-md-1 align-self-center text-center text-md-right my-2"
+          id="social-media"
+          *ngFor="let icon of socialMediaIcons"
+          style="padding-right: 2px"
+        >
+          <a [href]="icon.link" class="d-inline-block text-center ml-2">
+            <i [class]="icon.class"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

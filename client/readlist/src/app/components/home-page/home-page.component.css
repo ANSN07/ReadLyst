@@ -1,0 +1,285 @@
+.app-name {
+  font-family: "Times new roman";
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.mat-toolbar-color {
+  color: white;
+}
+
+.bg-image {
+  width: 100%;
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.overlay {
+  position: relative;
+  z-index: 1;
+}
+
+.bg-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+  font-size: 2.8rem !important;
+  font-weight: 700;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.line-with-gradient {
+  position: relative;
+}
+
+.line-with-gradient::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 10%;
+  height: 5px;
+  background: linear-gradient(to right, #55b4d4, #5758e0);
+}
+
+.text {
+  display: block;
+  padding-top: 40px;
+}
+
+.half-border-on-top {
+  position: relative;
+}
+
+.half-border-on-top:before {
+  padding: 0;
+  margin: 0;
+  display: block;
+  content: "";
+  width: 50%;
+  height: 70%;
+  border-image: linear-gradient(to left, #55b4d4, #5758e0) 1;
+  border-image-width: 17px 17px;
+  border-image-slice: 1 0 0 1;
+  position: absolute;
+  left: -10px;
+  top: -10px;
+}
+
+.half-border-on-bottom {
+  position: relative;
+}
+
+.half-border-on-bottom:before {
+  padding: 0;
+  margin: 0;
+  display: block;
+  content: "";
+  width: 50%;
+  height: 70%;
+  border-image: linear-gradient(to left, #55b4d4, #5758e0) 1;
+  border-image-width: 17px 17px;
+  border-image-slice: 0 1 1 0;
+  position: absolute;
+  right: -10px;
+  bottom: -10px;
+}
+
+.form-control::-webkit-input-placeholder {
+  color: white;
+}
+
+.form-control {
+  border-color: white !important;
+}
+
+.card-content {
+  color: rgb(133, 129, 129);
+  text-align: center;
+  padding-top: 20px;
+}
+
+.card-header {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(35, 34, 34) !important;
+  color: white;
+}
+
+.star {
+  transform: scale(1.5);
+  margin-top: 25px;
+  margin-right: 25px;
+  background: linear-gradient(to left, #55b4d4, #5758e0);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.icons {
+  transform: scale(2);
+  background: linear-gradient(to left, #55b4d4, #5758e0);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.white-icon {
+  color: white;
+}
+
+mat-card:hover {
+  background: linear-gradient(to left, #55b4d4, #5758e0);
+  color: white;
+  transform: translateY(-10px);
+  transition: 0.3s ease-in-out !important;
+}
+
+a,
+button {
+  cursor: pointer;
+}
+
+.jumbotron {
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
+}
+
+.effect {
+  border-radius: 22px !important;
+  padding: 12px 30px !important;
+  transition: 0.3s ease-in-out !important;
+}
+
+.effect:hover {
+  text-decoration: none;
+  transform: translateY(-5px);
+}
+
+.blue {
+  background: #5758e0;
+  color: white;
+}
+
+.blue:hover {
+  color: #ffffff;
+  background: linear-gradient(to left, #55b4d4, #5758e0);
+}
+
+#banner {
+  background-size: cover;
+}
+
+#banner header {
+  overflow: hidden;
+}
+
+#banner header img {
+  max-width: 80px;
+}
+
+.feature img {
+  width: 100%;
+  max-width: 480px;
+}
+
+.feature1 {
+  color: #ffffff;
+}
+
+#user-table {
+  padding-top: 4rem !important;
+  padding-bottom: 4rem !important;
+  color: #ffffff;
+}
+
+.user-hover {
+  background: #192440;
+  color: #ffffff;
+}
+
+#user-table ul li {
+  padding: 5px 0;
+}
+
+#contact {
+  background-size: cover;
+}
+
+#contact ul li {
+  padding: 3px 0;
+}
+
+#contact form {
+  color: #5758e0;
+}
+
+#contact form input,
+#contact form textarea {
+  background: transparent;
+  border: 1px solid #5758e0;
+  color: #ffffff;
+}
+
+#copyright {
+  background: #192440;
+  padding: 1rem 1rem;
+}
+
+#copyright #social-media a {
+  width: 40px;
+  height: 40px;
+  border-radius: 99%;
+  background: #ffffff;
+  transition: 0.4s ease;
+}
+
+#copyright #social-media a i {
+  color: #192440;
+  font-size: 1.2rem;
+  line-height: 40px;
+}
+
+#copyright #social-media a:hover {
+  background: #5758e0;
+}
+
+#copyright #social-media a:hover i {
+  color: #ffffff;
+}
+
+@media (max-width: 575px) {
+  #banner h1 {
+    font-size: 3.6rem;
+  }
+}

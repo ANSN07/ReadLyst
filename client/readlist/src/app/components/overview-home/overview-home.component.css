@@ -1,0 +1,102 @@
+.navbar-expand-lg .navbar-collapse {
+  display: flex !important;
+  justify-content: space-around;
+  flex-basis: auto;
+}
+
+.icons1 {
+  transform: scale(2);
+  background: linear-gradient(to left, #55b4d4, #5758e0);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.icons {
+  transform: scale(3) !important;
+  background: linear-gradient(to left, #55b4d4, #5758e0) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  color: transparent !important;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.card-header {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(35, 34, 34) !important;
+  color: white;
+}
+
+.card-content {
+  color: rgb(133, 129, 129);
+  text-align: center;
+  padding-top: 20px;
+}
+
+.card {
+  position: relative;
+  transition: filter 0.3s ease;
+}
+
+.card:hover {
+  filter: brightness(0.8);
+}
+
+mat-card {
+  transition: filter 0.3s ease;
+}
+
+.display {
+  display: none;
+}
+
+a:not(.logo) {
+  color: black;
+}
+
+.hover-text {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  transform: scale(2) !important;
+}
+
+mat-card:hover {
+  background: linear-gradient(to left, #55b4d4, #5758e0);
+  color: white;
+  transform: translateY(-10px);
+  transition: 0.3s ease-in-out !important;
+}
+
+.card:hover .hover-text {
+  opacity: 1;
+  filter: brightness(1) !important;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+.white-icon {
+  color: white;
+}
+
+.white-icon1 {
+  transform: scale(4);
+  color: white;
+  filter: brightness(1);
+}

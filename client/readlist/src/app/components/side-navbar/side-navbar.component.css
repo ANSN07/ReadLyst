@@ -1,0 +1,155 @@
+.navbar-expand-lg .navbar-collapse {
+  display: flex !important;
+  justify-content: space-around;
+  flex-basis: auto;
+}
+
+.icon-container {
+  position: fixed;
+  top: 35px;
+  left: 40px;
+  z-index: 9999;
+}
+
+.icons1 {
+  transform: scale(2);
+  background: linear-gradient(to left, #55b4d4, #5758e0);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.icons {
+  transform: scale(3) !important;
+  background: linear-gradient(to left, #55b4d4, #5758e0) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  color: transparent !important;
+}
+
+.fa-book {
+  font-size: 24px;
+  color: #fff;
+  background-color: #333;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  .icon-container {
+    top: 10px;
+    right: 10px;
+  }
+
+  .fa-book {
+    font-size: 20px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .icon-container {
+    top: 5px;
+    right: 5px;
+  }
+
+  .fa-book {
+    font-size: 16px;
+    padding: 6px;
+  }
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.card-header {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(35, 34, 34) !important;
+  color: white;
+}
+
+.card-content {
+  color: rgb(133, 129, 129);
+  text-align: center;
+  padding-top: 20px;
+}
+
+.card {
+  position: relative;
+  transition: filter 0.3s ease;
+}
+
+.nav-link.active {
+  background-color: #f0f0f0;
+  color: blue;
+}
+
+.card:hover {
+  filter: brightness(0.8);
+}
+
+mat-card {
+  transition: filter 0.3s ease;
+}
+
+.display {
+  display: none;
+}
+
+.form-control {
+  background-color: rgb(35, 34, 34);
+  border-bottom-color: white;
+}
+
+.form-control::placeholder {
+  color: white;
+}
+
+a:not(.logo) {
+  color: black;
+}
+
+.hover-text {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  transform: scale(2) !important;
+}
+
+mat-card:hover {
+  background: linear-gradient(to left, #55b4d4, #5758e0);
+  color: white;
+  transform: translateY(-10px);
+  transition: 0.3s ease-in-out !important;
+}
+
+.card:hover .hover-text {
+  opacity: 1;
+  filter: brightness(1) !important;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+.white-icon {
+  color: white;
+}
+
+.white-icon1 {
+  transform: scale(4);
+  color: white;
+  filter: brightness(1);
+}

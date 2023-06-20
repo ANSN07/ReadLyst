@@ -1,0 +1,20 @@
+<app-overview-header></app-overview-header>
+
+<div class="container-fluid py-5">
+  <div class="row">
+    <div class="col-md-3 col-lg-2">
+      <app-side-navbar></app-side-navbar>
+    </div>
+    <div class="col-md-9 col-lg-10">
+      <main class="px-md-4">
+        <div class="content" style="margin-top: 10px">
+          <mat-tab-group>
+            <mat-tab [label]="tabLabel">
+              <app-books-list [books]="readingList"></app-books-list>
+            </mat-tab>
+          </mat-tab-group>
+        </div>
+      </main>
+    </div>
+  </div>
+</div>
