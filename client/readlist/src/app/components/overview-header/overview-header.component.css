@@ -1,0 +1,14 @@
+.navbar-expand-lg .navbar-collapse {
+  display: flex !important;
+  justify-content: space-around;
+  flex-basis: auto;
+}
+
+.nav-link.active {
+  background-color: #f0f0f0;
+  color: blue;
+}
+
+a:not(.logo) {
+  color: black;
+}

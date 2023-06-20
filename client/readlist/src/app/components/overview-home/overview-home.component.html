@@ -1,0 +1,66 @@
+<div class="text-center" style="height: 180px">
+  <div class="mask">
+    <div class="h-100">
+      <div class="p-4" style="align-items: center">
+        <h1
+          class="display-3 font-weight-bold"
+          style="font-size: 40px; margin-top: 20px"
+        >
+          Start by adding a book.
+        </h1>
+        <button
+          routerLink="/add-book"
+          mat-raised-button
+          class="cta-green my-3 py-4 px-5"
+          style="border: 3px solid #5758e0 !important"
+        >
+          <i
+            class="bi bi-plus-lg"
+            style="font-size: 1.2rem; margin-right: 10px"
+          ></i>
+          <span style="font-size: 1.2rem">ADD BOOK</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div
+      class="card-container col-lg-4"
+      *ngFor="let card of cards; let i = index"
+    >
+      <mat-card
+        (click)="toAddBookPage()"
+        class="card py-5"
+        (mouseenter)="setHovered(i, true)"
+        (mouseleave)="setHovered(i, false)"
+      >
+        <mat-icon class="icons1" [ngClass]="{ 'white-icon': isHovered[i] }">{{
+          card.icon
+        }}</mat-icon>
+
+        <mat-card-header>
+          <mat-card-title style="margin-top: 25px">{{
+            card.title
+          }}</mat-card-title>
+        </mat-card-header>
+        <br />
+        <span *ngIf="!isHovered[i]">{{
+          card.bookCount === 1 ? "1 Book" : card.bookCount + " Books"
+        }}</span>
+
+        <mat-card-content class="card-content" *ngIf="!isHovered[i]">
+          {{ card.content }}
+        </mat-card-content>
+        <mat-icon
+          class="hover-text"
+          [ngClass]="{ 'white-icon1': isHovered[i] }"
+          *ngIf="isHovered[i]"
+        >
+          add_circle</mat-icon
+        >
+      </mat-card>
+    </div>
+  </div>
+</div>
