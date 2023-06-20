@@ -1,0 +1,138 @@
+<app-overview-header></app-overview-header>
+
+<div class="container-fluid py-5">
+  <div class="row">
+    <div class="col-md-3 col-lg-2">
+      <app-side-navbar></app-side-navbar>
+    </div>
+    <div class="col-md-9 col-lg-10">
+      <main class="px-md-4">
+        <h2 class="text text-center">ADD BOOKS</h2>
+        <hr />
+        <p class="text-center">
+          You can add books either by searching for them or by manually typing
+          the book details.
+        </p>
+
+        <div class="form-outline black">
+          <input
+            type="search"
+            id="search"
+            class="form-control"
+            placeholder="Search Books..."
+            aria-label="Search"
+            (focus)="onSearchInputFocus()"
+          />
+        </div>
+
+        <form (ngSubmit)="saveBook(bookForm)" #bookForm="ngForm">
+          <h1 style="text-align: left">Add Manually</h1>
+          <div class="row my-3">
+            <div class="col-md-4">
+              <label for="title">Title:</label>
+              <input
+                type="text"
+                id="title"
+                name="title"
+                required
+                [(ngModel)]="book.title"
+                #title="ngModel"
+              />
+              <div
+                *ngIf="title.invalid && (title.dirty || title.touched)"
+                class="text-danger"
+              >
+                <div *ngIf="title.errors.required">Title is required.</div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label for="author">Author:</label>
+              <input
+                type="text"
+                id="author"
+                name="author"
+                required
+                [(ngModel)]="book.author"
+                #author="ngModel"
+              />
+              <span
+                *ngIf="author.invalid && (author.dirty || author.touched)"
+                class="text-danger"
+              >
+                <span *ngIf="author.errors.required">Author is required.</span>
+              </span>
+            </div>
+            <div class="col-md-4">
+              <label for="isbn">ISBN (Optional):</label>
+              <input
+                type="text"
+                id="isbn"
+                name="isbn"
+                [(ngModel)]="book.isbn"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-4">
+              <label for="pages">Number of pages:</label>
+              <input
+                type="number"
+                id="pages"
+                name="pages"
+                required
+                [(ngModel)]="book.pages"
+                #pages="ngModel"
+                pattern="[0-9]"
+              />
+              <div
+                *ngIf="pages.invalid && (pages.dirty || pages.touched)"
+                class="text-danger"
+              >
+                <div *ngIf="pages.errors.required">
+                  Number of pages is required.
+                </div>
+                <div *ngIf="pages.errors.pattern">
+                  Please enter a valid number.
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label for="status">Status:</label>
+              <select
+                id="status"
+                name="status"
+                required
+                [(ngModel)]="book.status"
+                #status="ngModel"
+              >
+                <option value="" disabled [selected]="!book.status">
+                  Select status
+                </option>
+                <option *ngFor="let option of statusOptions" [value]="option">
+                  {{ option }}
+                </option>
+              </select>
+              <div
+                *ngIf="status.invalid && (status.dirty || status.touched)"
+                class="text-danger"
+              >
+                <div *ngIf="status.errors.required">Status is required.</div>
+              </div>
+            </div>
+          </div>
+          <br />
+          <div class="text-center">
+            <button
+              type="submit"
+              class="btn my-4 save-button"
+              [disabled]="bookForm.invalid"
+            >
+              Save book
+            </button>
+          </div>
+        </form>
+      </main>
+    </div>
+  </div>
+</div>
